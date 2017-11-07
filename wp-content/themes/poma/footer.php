@@ -11,7 +11,7 @@
 
 </div><!-- Close container -->
 	<div class="footer-container">
-		<footer class="footer">
+		<footer class="footer flex">
 			<?php dynamic_sidebar( 'footer-widgets' ); ?>
 		</footer>
 	</div>

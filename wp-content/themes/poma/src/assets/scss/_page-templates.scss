@@ -1,0 +1,46 @@
+.main-content {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.homeDescription{
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  padding-left: 10em;
+  padding-right: 10em;
+  color: gray;
+}
+
+.aboutUsFooter{
+  font-size: 1.2rem;
+  line-height: 1.5em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  padding-top: 2em;
+  color: gray;
+
+  widows: 100%;
+
+
+}
+
+.footer {
+  height: 400px;
+
+  background-color: black;
+  color: white;
+  align-content: center;
+  padding: 0 2.5em 0 2.5em;
+}
+
+.footer section {
+  color: #0cd2aa;
+  display: flex;
+  align-content: center;
+}
+
+footer h2 {
+  padding-top: 2em;
+}
