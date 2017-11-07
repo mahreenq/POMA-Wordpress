@@ -8,8 +8,7 @@
   line-height: 1.5em;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  padding-left: 10em;
-  padding-right: 10em;
+  padding: 1em 10em 4em 10em;
   color: gray;
 }
 
@@ -43,4 +42,42 @@
 
 footer h2 {
   padding-top: 2em;
+}
+
+nav {
+  background: black;
+  color: white;
+  font-size: 1.2em;
+  height: 5em;
+  align-content: center;
+
+}
+
+.top-bar-right{
+  ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+  }
+}
+
+.teamMembers{
+  background: black;
+  color: white;
+}
+
+.goldText{
+  color: rgb(191, 159, 17)
+}
+
+.whiteText{
+  color: white;
+}
+
+.greenText{
+  color:rgb(50, 189, 129);
+}
+.greyText{
+  color: grey; 
 }

@@ -17,7 +17,7 @@
 
 get_header(); ?>
 
-<?php echo 'front-page.php'; ?>
+
 
 <div class="main-wrap width-100">
 	<main class="main-content ">
