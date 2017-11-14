@@ -73,13 +73,7 @@ big {
   font-size: 2rem;
 }
 
-.Merriweather{
-	font-family:  $font__secondary;
-}
- p {
-	font-family:  $font__secondary;
 
-}
 
 
 
@@ -127,4 +121,8 @@ body {
 
 .lgFont{
 	font-size: 4em;
+}
+
+.text-align-right{
+	text-align: right;
 }

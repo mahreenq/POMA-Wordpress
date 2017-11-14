@@ -6,88 +6,56 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header>
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+
+<?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
+
+
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+    <header >
+    
+    <div class="teamHeader" style="background-size: 100%;background: url('<?php echo $backgroundImg[0] ?>');">
+        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <p class="teamDescription"> <?php the_content(); ?></p>
+</div>
+       
 	</header>
 	<div class="entry-content">
-		<?php the_content(); ?>
-        <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
+                            <div class= " teamMembers">
+
+                        <?php 
+                            $fields = CFS()->get( 'team_members' ); ?>
+                    
 
 
+                            <?php  $i=0;
+                            foreach($fields[$i] as $field) {
+                            $group="d-direction-row";
+                                if($i % 2 !== 0){$group ="d-direction-row-reverse text-align-right";}  ?>
 
-   <?php $backgroundImg = the_post_thumbnail(); ?>
-   <div class="lalala" >
-   <?php the_post_thumbnail(); ?>
-</div>
+                                <div class="flex  <?php echo $group ?> ">
 
-
-
-   <div class="" style="width:25%;height:40vh;background:  url('<?php the_post_thumbnail(); ?>');background-size:cover;">
-
-   <div class=" ">
-        <?php the_title(); ?>
-    </div>'
-
-</div>
+                                    <div class= "width-50" style="height:70vh;background:  url('<?php echo $fields[$i][picture]; ?>');background-size:cover; background-position:center;">
+                                    </div>
 
 
-
-
-
-
-
-
- 
-<div class= " teamMembers">
-
-        <?php 
-        echo '<br>';
-        echo '<br>';
-        $fields = CFS()->get( 'team_members' );
-        foreach ( $fields as $field ) {
-
-            echo '<div class= "flex ">';
-
-            echo '<div class= "width-50">';
-            echo '<img src="'.$field['picture'].'">';
-            echo '<br>';
-            echo '</div>';
-
-            echo '<div class= "width-50 padding-med flex flex-direction-column align-self-center">';
-            echo '<span class="goldText padding-top-med lato400">'.$field['role'].'</span>' ;
-           
-            echo '<span class="whiteText oswald medFont padding-top-med">'.$field['name'].'</span>';
-           
-            echo '<span class="whiteText smFont padding-top-med lato400 greyText">'.$field['bio'].'</span>';
-            echo '<br><br><br>';
-
-            echo '<div class= "flex padding-top-med ">';
-            echo '<a href="'.$field['instagram_url'].'"> <i class="fa fa-instagram greenText " aria-hidden="true"></i>  </a>';
-            echo '<br>';
-            echo '<a href="'.$field['twitter_url'].'"> <i class="fa fa-twitter greenText" aria-hidden="true"></i> </a>';
-            echo '<br>';
-            echo '<a href="'.$field['facebook_url'].'"> <i class="fa fa-facebook greenText" aria-hidden="true"></i> </a>';
-            echo '</div>';
-
-
-            echo '</div>';
-
-            echo '</div>';
-
-            
-        }
-        ?>
-
-
-</div>
-
-
-
-
+                                    <div class= "width-50 padding-med flex flex-direction-column align-self-center">
+                                        <span class="goldText padding-top-med lato400"> <?php echo $fields[$i][role]; ?></span>
+                                        <span class="whiteText oswald medFont padding-top-med"><?php echo $fields[$i][name] ?></span>
+                                        <span class="whiteText smFont padding-top-med lato400 greyText"><?php echo $fields[$i][bio]; ?></span>
+                                            <div class= "flex padding-top-med ">
+                                                <a href="<?php echo $fields[$i][instagram_url]; ?>"> <i class="fa fa-instagram greenText " aria-hidden="true"></i>  </a>
+                                                <a href="<?php echo $fields[$i][twitter_url] ;?>"> <i class="fa fa-twitter greenText" aria-hidden="true"></i> </a>
+                                                <a href=" <?php echo$fields[$i][facebook_url];?> "> <i class="fa fa-facebook greenText" aria-hidden="true"></i> </a>
+                                            </div>
+                                    </div>
+                                </div>
+                                
+                        <?php  $i+=1; } ?>
+                    </div>
+		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
 		<?php
@@ -101,4 +69,9 @@
 		<?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
 	</footer>
 </article>
+
+
+ 
+
+
 

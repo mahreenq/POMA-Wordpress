@@ -16,8 +16,9 @@
 
  <div class="main-wrap">
 	 <main class="main-content">
-		 <?php while ( have_posts() ) : the_post(); ?>
-		 	<?php get_template_part( 'template-parts/content', 'team' ); ?>
+		 <?php while ( have_posts() ) : the_post();  ?>
+			 <?php get_template_part( 'template-parts/content', 'team' ); ?>
+			 
 			<?php comments_template(); ?>
 		 <?php endwhile;?>
 	 </main>

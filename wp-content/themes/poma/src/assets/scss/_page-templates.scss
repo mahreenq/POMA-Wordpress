@@ -35,7 +35,7 @@
 }
 
 .footer section {
-  color: #0cd2aa;
+  color: #ffd700;
   display: flex;
   align-content: center;
 }
@@ -68,11 +68,17 @@ nav {
 }
 
 .goldText{
-  color: rgb(191, 159, 17)
+  color: #ffd700;
+}
+.goldBorder{
+  border: 2px solid #ffd700;
 }
 
 .whiteText{
   color: white;
+}
+.greyText{
+  color: #979797;
 }
 
 .greenText{
@@ -80,4 +86,59 @@ nav {
 }
 .greyText{
   color: grey; 
+}
+
+.d-direction-row{
+  flex-direction: row;
+
+}
+.d-direction-row-reverse{
+  flex-direction: row-reverse;
+}
+.blackBackground{
+  background-color: black;
+}
+
+//CONTENT-TEAM
+.teamHeader{
+height: 50vh;
+background-position: center;
+background-size: 100%;
+background-repeat: no-repeat;
+}
+
+
+
+//BLOG ARCHIVE
+.singleJournal{
+  width: 30%;
+  border-radius: 15px;
+}
+
+.blogHeader{
+  height: 300px;
+  background-color: black;
+}
+.blogImageArchive{
+  height: 300px;
+}
+
+.blogExcerpt, .comments {
+  line-height: 25px;
+}
+.byline{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  color: #979797;
+  font-size: 15px;
+
+}
+
+//EVENTS ARCHIVE
+.noEvents{
+  height: 700px;
+}
+.eventPictureArchive {
+  height: 500px;
 }
