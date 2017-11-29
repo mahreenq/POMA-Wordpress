@@ -34,11 +34,14 @@
 		</div>
 
 		<nav class="site-navigation top-bar flex oswald justify-content-center" role="navigation">
-			<!-- <div class="top-bar-left flex ">
-				<div class="site-desktop-title top-bar-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				<div class="homelogo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> 
+					<img src= "<?php echo esc_url( home_url( '/wp-content/themes/poma/src/assets/images/pomalogo.png' ) ); ?>"</a>
+					</a>
 				</div>
-			</div> -->
+			<div class="top-bar-left flex ">
+		
+			</div>
 			<div class="top-bar-right flex width-75 ">
 				<?php foundationpress_top_bar_r(); ?>
 
