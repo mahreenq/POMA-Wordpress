@@ -2,7 +2,7 @@
 
 class N2SS3 {
 
-    public static $version = '3.2.9';
+    public static $version = '3.2.10';
 
     public static $plan = 'pro';
 
@@ -12,17 +12,20 @@ class N2SS3 {
 
     public static $source = '';
 
+    public static function shouldSkipLicenseModal() {
+        return true;
+    
+    }
+
     public static function applySource(&$params) {
         static $isSourceSet = false;
         if (!$isSourceSet) {
-            N2SS3::$plan = 'free';
             if (defined('SMARTSLIDER3AFFILIATE')) {
                 N2SS3::$source = SMARTSLIDER3AFFILIATE;
             }
             N2SS3::$source = apply_filters('smartslider3_hoplink', N2SS3::$source);
         
 
-        
             $isSourceSet = true;
         }
 
@@ -128,3 +131,4 @@ class N2SS3 {
     public static function initLicense() {
     }
 }
+N2SS3::$plan = 'free';

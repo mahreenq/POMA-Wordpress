@@ -740,7 +740,14 @@ window.nextend.roundHelper = function (value) {
 
                 NextendAjaxHelper.notification(response);
             } catch (e) {
-                console.log(e);
+
+                var pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im,
+                    matches = pattern.exec(response.responseText);
+                if (matches.length) {
+                    NextendModalSafeHTML(response.status, matches[1]);
+                } else {
+                    console.error(response.responseText, response);
+                }
             }
         });
     };
@@ -2057,6 +2064,32 @@ window.N2Color = {
 
     scope.NextendModal = NextendModal;
 
+    scope.NextendModalSafeHTML = function (title, html) {
+
+        var modal = new NextendModal({
+            zero: {
+                fit: true,
+                size: [
+                    1300,
+                    700
+                ],
+                title: title,
+                content: ''
+            }
+        }, true);
+
+        modal.content.removeClass('n2-modal-content').css('padding', '0 20px 20px');
+        var $html = $(html.replace(/document\.write/g, 'n2Write')),
+            $currentNode;
+        window.n2Write = $.proxy(function (buffer) {
+            $('<span />').html(buffer).appendTo(modal.content);
+        }, this);
+        $html.each($.proxy(function (i, el) {
+            $currentNode = $(el);
+            $currentNode.appendTo(modal.content);
+        }, this));
+        delete window.n2Write;
+    };
 
     scope.NextendModalSetting = {
         show: function (title, url) {

@@ -295,10 +295,11 @@ N2Require('Zoom', [], [], function ($, scope, undefined) {
 });
 N2Require('CreateSlider', [], [], function ($, scope, undefined) {
 
-    function CreateSlider(groupID, ajaxUrl) {
+    function CreateSlider(groupID, ajaxUrl, shouldSkipLicenseModal) {
         this.addToGroupModal = null;
         this.groupID = groupID;
         this.ajaxUrl = ajaxUrl;
+        this.shouldSkipLicenseModal = shouldSkipLicenseModal;
         $('.n2-ss-create-slider').click($.proxy(function (e) {
             e.preventDefault();
             e.stopImmediatePropagation();
@@ -490,7 +491,7 @@ N2Require('CreateSlider', [], [], function ($, scope, undefined) {
 });
 N2Require('ManageSliders', [], [], function ($, scope, undefined) {
 
-    function ManageSliders(groupID, ajaxUrl) {
+    function ManageSliders(groupID, ajaxUrl, shouldSkipLicenseModal) {
         this.preventSort = false;
         this.groupID = groupID;
         this.ajaxUrl = ajaxUrl;
@@ -510,7 +511,7 @@ N2Require('ManageSliders', [], [], function ($, scope, undefined) {
 
         this.initOrderable();
 
-        this.create = new scope.CreateSlider(groupID, ajaxUrl);
+        this.create = new scope.CreateSlider(groupID, ajaxUrl, shouldSkipLicenseModal);
         this.initBulk();
     }
 
@@ -3764,7 +3765,10 @@ N2Require('Generator', ['SlideAdmin'], ['smartSlider'], function ($, scope, smar
             for (var i = 0; i < args.length; i++) {
                 args[i] = this.parseVariable(args[i]);
             }
-            return this[functionName].apply(this, args);
+            if (typeof this[functionName] === 'function') {
+                return this[functionName].apply(this, args);
+            }
+            return s;
         } else {
             return this.parseVariable(variable);
         }
@@ -13193,54 +13197,56 @@ N2Require('Row', ['LayerContainer', 'ComponentAbstract'], ['smartSlider'], funct
     }
 
     Row.prototype._syncwrapafter = function () {
-        var wrapAfter = parseInt(this.getProperty('wrapafter')),
-            columns = this.getOrderedColumns(),
-            isWrapped = false;
+        if (!this.isDeleted && !this.isDeleteStarted) {
+            var wrapAfter = parseInt(this.getProperty('wrapafter')),
+                columns = this.getOrderedColumns(),
+                isWrapped = false;
 
-        for (var i = columns.length - 1; i >= 0; i--) {
-            if (!columns[i].showsOnCurrent) {
-                columns.splice(i, 1);
-            }
-        }
-
-        var length = columns.length;
-
-        if (wrapAfter > 0 && wrapAfter < length) {
-            isWrapped = true;
-        }
-
-        this.$row.find('> .n2-ss-row-break').remove();
-
-        this.$row.toggleClass('n2-ss-row-wrapped', isWrapped);
-
-        if (isWrapped) {
-            for (var i = 0; i < length; i++) {
-                var row = parseInt(i / wrapAfter);
-                columns[i].layer.attr('data-r', row);
-                if ((i + 1) % wrapAfter == 0 || i == length - 1) {
-                    var order = columns[i].getProperty('order');
-                    if (order == 0) order = 10;
-                    $('<div class="n2-ss-row-break"/>')
-                        .css('order', order)
-                        .insertAfter(columns[i].layer.addClass('n2-ss-last-in-row'));
-                } else {
-                    columns[i].layer.removeClass('n2-ss-last-in-row');
+            for (var i = columns.length - 1; i >= 0; i--) {
+                if (!columns[i].showsOnCurrent) {
+                    columns.splice(i, 1);
                 }
             }
-        } else {
-            for (var i = 0; i < length; i++) {
-                columns[i].layer
-                    .removeClass('n2-ss-last-in-row')
-                    .attr('data-r', 0);
-            }
-            if (columns.length > 0) {
-                columns[length - 1].layer.addClass('n2-ss-last-in-row');
-            } else {
-                console.error('The row does not have col.');
-            }
-        }
 
-        this.update();
+            var length = columns.length;
+
+            if (wrapAfter > 0 && wrapAfter < length) {
+                isWrapped = true;
+            }
+
+            this.$row.find('> .n2-ss-row-break').remove();
+
+            this.$row.toggleClass('n2-ss-row-wrapped', isWrapped);
+
+            if (isWrapped) {
+                for (var i = 0; i < length; i++) {
+                    var row = parseInt(i / wrapAfter);
+                    columns[i].layer.attr('data-r', row);
+                    if ((i + 1) % wrapAfter == 0 || i == length - 1) {
+                        var order = columns[i].getProperty('order');
+                        if (order == 0) order = 10;
+                        $('<div class="n2-ss-row-break"/>')
+                            .css('order', order)
+                            .insertAfter(columns[i].layer.addClass('n2-ss-last-in-row'));
+                    } else {
+                        columns[i].layer.removeClass('n2-ss-last-in-row');
+                    }
+                }
+            } else {
+                for (var i = 0; i < length; i++) {
+                    columns[i].layer
+                        .removeClass('n2-ss-last-in-row')
+                        .attr('data-r', 0);
+                }
+                if (columns.length > 0) {
+                    columns[length - 1].layer.addClass('n2-ss-last-in-row');
+                } else {
+                    console.error('The row does not have col.');
+                }
+            }
+
+            this.update();
+        }
     }
 
     Row.prototype.getOrderedColumns = function () {

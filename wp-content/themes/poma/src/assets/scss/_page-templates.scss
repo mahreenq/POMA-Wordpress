@@ -1,6 +1,16 @@
-.main-content {
-  padding-left: 2rem;
-  padding-right: 2rem;
+// .main-content {
+//   padding-left: 2rem;
+//   padding-right: 2rem;
+// }
+
+.page-id-11 {
+  .main-content{
+  padding-left: 0;
+  padding-right: 0;
+}
+.entry-content {
+  background-color: #a0b1c5
+}
 }
 
 .homeDescription{
@@ -12,6 +22,30 @@
   color: gray;
 }
 
+.journalTitleHome{
+  font-size: 25px;
+}
+
+// .bloghomepage :hover { 
+//   background-color: yellow;
+// }
+
+// .blogshomepage{
+//   background-color: #dfe5ec;
+// }
+
+.aboutHeader{
+  background: black;
+  color: white;
+  width: 100%;
+  line-height: 1.7rem;
+    .aboutDesc{
+      
+      color: white;
+    }
+
+}
+
 .aboutUsFooter{
   font-size: 1.2rem;
   line-height: 1.5em;
@@ -19,9 +53,7 @@
   font-weight: 300;
   padding-top: 2em;
   color: gray;
-
-  widows: 100%;
-
+  width: 100%;
 
 }
 
@@ -49,8 +81,29 @@ nav {
   color: white;
   font-size: 1.2em;
   height: 5em;
-  align-content: center;
 
+  div{
+    padding-top: 35px;
+  }
+
+}
+
+  .menu-item-86 {
+    .is-dropdown-submenu {
+      display: none;
+      }
+  }
+
+  .page-id-75 {
+    .is-dropdown-submenu{
+      display: block;
+      }
+  }
+
+  .menu-item-86:hover { 
+    .is-dropdown-submenu {
+      display: block;
+      }
 }
 
 .top-bar-right{
@@ -65,6 +118,13 @@ nav {
 .teamMembers{
   background: black;
   color: white;
+}
+.teamDescription p{
+    padding-top: 10px;
+    color: white;
+    line-height: 1.4em;
+    font-weight: 400;
+
 }
 
 .goldText{
@@ -98,21 +158,43 @@ nav {
 .blackBackground{
   background-color: black;
 }
+.bluegreyBackground{
+  background-color:  #b0becf;
+}
 
 //CONTENT-TEAM
 .teamHeader{
-height: 50vh;
+height: 450px;
 background-position: center;
 background-size: 100%;
 background-repeat: no-repeat;
+
+}
+
+
+
+
+
+.transparentBlackBg{
+  background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 
 
 //BLOG ARCHIVE
+
+.blog {
+  .main-content{
+    background-color: #dfe5ec;
+  }
+}
 .singleJournal{
   width: 30%;
   border-radius: 15px;
+  margin: 1em;
+  padding: 5px;
+  background-color: ghostwhite;
 }
 
 .blogHeader{
@@ -121,6 +203,7 @@ background-repeat: no-repeat;
 }
 .blogImageArchive{
   height: 300px;
+  border-radius: 10px;
 }
 
 .blogExcerpt, .comments {
@@ -136,9 +219,154 @@ background-repeat: no-repeat;
 }
 
 //EVENTS ARCHIVE
-.noEvents{
-  height: 700px;
+.eventsHeader {
+
+  height: 450px;
+  background-position: right !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+
 }
-.eventPictureArchive {
-  height: 500px;
+
+//SINGL BLOG.
+.singleBlogHeading{
+  background-color: black;
+  margin-bottom: 10px;
+}
+.blogContent {
+  line-height: 1.5em;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.blogTitle{
+  font-weight: 300;
+  font-size: 50px;
+}
+.commentsBlog{
+  font-weight: 300;
+  font-size: 1.4rem;
+
+}
+.single-post{
+  .main-content{
+    background-color: ghostwhite;
+  }
+}
+
+.sidebarBlog{
+  padding-top: 2rem;
+  padding-left: 2rem;
+  background-color: #b0becf;
+  font-weight: 300;
+  font-size: 1.2rem;
+   h6{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 200;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-transform: uppercase;
+   }
+   li{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+   }
+}
+
+
+//ARCHIVE ARTISTS
+.artistsImageArchive{
+  height: 300px;
+  background-position: center !important;
+  
+}
+
+// .post-type-archive-artists {
+//   background-color: 
+// }
+
+
+
+
+
+
+//CONTACT
+
+#wpcf7-f101-p21-o1{
+
+  width: 60%;
+  p{
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  input{
+    margin-top: 10px;
+  }
+  input[type=text], input[type=email]  {
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    border: 2px sold white;
+    padding: 5px;
+}
+input[type=text]:focus , input[type=email]:focus {
+  border: 5px solid #ffd700;
+}
+  textarea{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    padding: 20px;
+    border: 2px sold white;
+  }
+  textarea:focus  {
+    border: 5px solid #ffd700;
+  }
+  input[type=submit] {
+    background: none;
+    border: 2px solid #ffd700 ;
+    color: #ffd700;
+    border-radius: 15px;
+    font-size: 1.1em;
+    box-shadow: none !important;
+    padding: 10px;   
+  }
+}
+
+//GALLERY
+
+@media only screen
+and (min-width:600px )
+and (max-width:1000px) {
+    .ngg-album-compact{
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row !important;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 80px !important;
+    }
+}
+
+
+
+
+
+@media only screen
+and (min-width:1000px) {
+    .ngg-album-compact{
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row !important;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 80px !important;
+    }
 }

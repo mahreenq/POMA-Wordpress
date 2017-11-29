@@ -290,7 +290,7 @@ class SmartSlider3 {
     }
 
     public static function beaverBuilder() {
-        require_once dirname(__FILE__) . '/integrations/BeaverBuilder.php';
+        require_once dirname(__FILE__) . '/integrations/beaver-builder/BeaverBuilder.php';
     }
 
     public static function tailor() {

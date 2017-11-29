@@ -117,9 +117,7 @@ add_action('elementor/controls/controls_registered', function ($controls_manager
 				<input type="{{ data.input_type }}" title="{{ data.title }}" data-setting="{{ data.name }}""/>
 			</div>
 		</div>
-            <# if ( data.description ) { #>
-		<div class="elementor-control-field-description">{{{ data.description }}}</div>
-		<# } #>
+            <# if(data.controlValue == ''){NextendSmartSliderSelectModal(function(){return jQuery('[data-setting="smartsliderid"]')})} #>
             <?php
         }
 

@@ -1,7 +1,6 @@
 <?php
 
-class N2SmartSliderFeatureLayerMode
-{
+class N2SmartSliderFeatureLayerMode {
 
     private $slider;
 
@@ -39,6 +38,9 @@ class N2SmartSliderFeatureLayerMode
     }
 
     public function makeJavaScriptProperties(&$properties) {
+        $params                    = $this->slider->params;
+        $properties['perspective'] = max(0, intval($params->get('perspective', 1500)));
+
         $properties['layerMode'] = array(
             'playOnce'       => $this->playOnce,
             'playFirstLayer' => $this->playFirstLayer,
@@ -46,7 +48,6 @@ class N2SmartSliderFeatureLayerMode
             'inAnimation'    => $this->inAnimation
         );
 
-        $params                 = $this->slider->params;
         $properties['parallax'] = array(
             'enabled'    => intval($params->get('parallax-enabled', 1)),
             'mobile'     => intval($params->get('parallax-enabled-mobile', 0)),

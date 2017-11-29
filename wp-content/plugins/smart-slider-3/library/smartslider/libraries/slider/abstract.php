@@ -287,7 +287,7 @@ abstract class N2SmartSliderAbstract {
             $slider = '<div class="n2-clear"></div>' . $slider;
         }
 
-        return "\n<!-- Nextend Smart Slider 3 #" . $this->sliderId . " - BEGIN -->\n" . $slider . "\n<!-- Nextend Smart Slider 3 #" . $this->sliderId . " - END -->\n";
+        return $slider;
     }
 
     public function addStaticSlide($slide) {

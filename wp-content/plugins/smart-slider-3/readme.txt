@@ -3,8 +3,8 @@ Contributors: nextendweb
 Tags: slider, gallery slider, image slider, layer slider, responsive slider, slideshow, fullwidth slider, post slider, horizontal slider, vertical slider, photo slider, video slider
 Donate link: https://sites.fastspring.com/nextend/product/smartslider3donate
 Requires at least: 4.6
-Tested up to: 4.8.2
-Stable tag: 3.2.9
+Tested up to: 4.9
+Stable tag: 3.2.10
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -204,6 +204,19 @@ Of course! Smart Slider use protocol relative urls which works fine on http:// a
 9. Layer slider with layers styles. Made with FREE version.
 
 == Changelog ==
+
+= 3.2.10 - 23. November 2017. =
+* Feature: The Youtube and Vimeo layers will stop if you scroll away from them and they will continue when you scroll back
+* Feature: The free version's Image layer will have width and height settings too
+* Feature: Joomla article generator image variables
+* Feature: Base64 removed from async
+* Feature: Elementor will auto open the slider selector
+* Feature: Beaver Builder 2.0 compatibility
+* Fix: Youtube certain configuration settings weren't used
+* Fix: Slide's link wasn't clickable over the text bar
+* Fix: Search in link
+* Fix: PHP7.2 deprecated create_function notice
+* Fix: Wordfence compatility
 
 = 3.2.9 - 12. October 2017. =
 * Feature: Drag and drop upload removes the image extension

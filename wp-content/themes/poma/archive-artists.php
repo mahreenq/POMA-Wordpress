@@ -1,0 +1,55 @@
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each one. For example, tag.php (Tag archives),
+ * category.php (Category archives), author.php (Author archives), etc.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
+ */
+
+get_header(); ?>
+
+<div class="main-wrap">
+<h1 class="text-align-center padding-top-lg padding-bottom-med bluegreyBackground uppercase oswald lgFont goldText transparentBlackBg "> Meet our Artists </h1>
+	<main class="main-content flex flex-wrap justify-content-center bluegreyBackground padding-top-med padding-bottom-xlg">
+		
+	<?php if ( have_posts() ) : ?>
+
+		<?php /* Start the Loop */ ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'template-parts/archive-artists' ); ?>
+		<?php endwhile; ?>
+
+		<?php else : ?>
+		<div class="noEvents text-align-center lato padding-top-xl">
+            <h1> We are lining up some great artists! Please check back later :) </h1>
+        </div>
+
+		<?php endif; // End have_posts() check. ?>
+
+		<?php /* Display navigation to next/previous pages when applicable */ ?>
+		<?php
+		if ( function_exists( 'foundationpress_pagination' ) ) :
+			foundationpress_pagination();
+		elseif ( is_paged() ) :
+		?>
+			<nav id="post-nav">
+				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+			</nav>
+		<?php endif; ?>
+
+	</main>
+
+
+</div>
+
+<?php get_footer();

@@ -4869,12 +4869,12 @@ N2Require('Icons', [], [], function ($, scope, undefined) {
     }
 
     NextendFontServiceGoogle.prototype.loadFamily = function (e, family) {
-
-        if ($.inArray(family, this.fonts) != -1) {
+        family = family.toLowerCase()
+        if (typeof this.fonts[family] !== 'undefined') {
             $('<link />').attr({
                 rel: 'stylesheet',
                 type: 'text/css',
-                href: '//fonts.googleapis.com/css?family=' + encodeURIComponent(family + ':' + this.style) + '&subset=' + encodeURIComponent(this.subset)
+                href: '//fonts.googleapis.com/css?family=' + encodeURIComponent(this.fonts[family] + ':' + this.style) + '&subset=' + encodeURIComponent(this.subset)
             }).appendTo($('head'));
         }
     };

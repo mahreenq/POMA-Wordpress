@@ -36,6 +36,7 @@ get_header(); ?>
 
         <?php endwhile; ?>
         <?php get_template_part( 'template-parts/home-testimonials' ); ?>
+        <?php get_template_part( 'template-parts/home-journal' ); ?>
         <?php get_template_part( 'template-parts/home-artists' ); ?>
         
 

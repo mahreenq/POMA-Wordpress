@@ -1,4 +1,4 @@
-<h2>events archive</h2><?php
+<?php
 /**
  * The template for displaying archive pages
  *

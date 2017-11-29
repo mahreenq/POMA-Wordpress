@@ -80,11 +80,14 @@ class N2SS3Shortcode {
                                     outerEl = $sourceFrame.parent(),
                                     outerElOffset = outerEl.offset();
                                 $sourceFrame.css("maxWidth", "none");
+                                
                                 if ($("html").attr("dir") == "rtl") {
-                                    outerElOffset.right = windowWidth - (outerElOffset.left + outerEl.outerWidth());
-                                    $sourceFrame.css("marginRight", -outerElOffset.right - parseInt(outerEl.css("paddingLeft")) - parseInt(outerEl.css("borderLeftWidth"))).width(windowWidth);
+                                    var bodyMarginRight = parseInt($(document.body).css("marginRight"));
+                                    outerElOffset.right = $(window).width() - (outerElOffset.left + outerEl.outerWidth()) - bodyMarginRight;
+                                    $sourceFrame.css("marginRight", -outerElOffset.right - parseInt(outerEl.css("paddingRight")) - parseInt(outerEl.css("borderRightWidth"))).width(windowWidth);
                                 } else {
-                                    $sourceFrame.css("marginLeft", -outerElOffset.left - parseInt(outerEl.css("paddingLeft")) - parseInt(outerEl.css("borderLeftWidth"))).width(windowWidth);
+                                    var bodyMarginLeft = parseInt($(document.body).css("marginLeft"));
+                                    $sourceFrame.css("marginLeft", -outerElOffset.left - parseInt(outerEl.css("paddingLeft")) - parseInt(outerEl.css("borderLeftWidth")) + bodyMarginLeft).width(windowWidth);
                                 }
                             };
                             resizeFF();
@@ -103,7 +106,7 @@ class N2SS3Shortcode {
 
         $attributes = array(
             'class'       => "n2-ss-slider-frame",
-            'style'       => 'width:100%',
+            'style'       => 'width:100%;display:block;border:0;',
             'frameborder' => 0,
             'src'         => site_url() . '?n2prerender=1&n2app=smartslider&n2controller=slider&n2action=iframe&sliderid=' . $sliderID . '&hash=' . md5($sliderID . NONCE_SALT)
         );

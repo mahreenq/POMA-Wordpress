@@ -33,13 +33,13 @@
 			</div>
 		</div>
 
-		<nav class="site-navigation top-bar flex oswald" role="navigation">
+		<nav class="site-navigation top-bar flex oswald justify-content-center" role="navigation">
 			<!-- <div class="top-bar-left flex ">
 				<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 				</div>
 			</div> -->
-			<div class="top-bar-right flex width-100">
+			<div class="top-bar-right flex width-75 ">
 				<?php foundationpress_top_bar_r(); ?>
 
 				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) === 'topbar' ) : ?>

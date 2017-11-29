@@ -14,7 +14,8 @@
 	
 	<?php echo '<a   href="'.get_permalink().'">' ; ?>
 <article class="singleJournal  margin-top-med" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="blogImageArchive text-align-center flex flex-direction-column align-content-center justify-content-center goldText" style="background: url('<?php echo $backgroundImg[0]; ?>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+	<div class="blogImageArchive text-align-center flex flex-direction-column align-content-center justify-content-center goldText" 
+	style="background: url('<?php echo $backgroundImg[0]; ?>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
 	</div>
 
 		

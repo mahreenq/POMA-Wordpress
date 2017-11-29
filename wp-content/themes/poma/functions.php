@@ -93,7 +93,6 @@ function my_product_taxonomy($cpt) {
 function register (){
   $a = array( 'programs' =>'Program Type' ,
               'artists' => 'Artists Type',
-              'events' => 'Event Type',
             );
 						foreach  ( $a as $key => $value )  {
 					    $args= get_post_args($key);
@@ -110,6 +109,7 @@ add_action( 'init', 'register', 0 );
   * Create custom Taxonomy(ies)
   */
   function get_post_args($cpt){
+    $cpt = ucwords($cpt);
     $labels = array(
               'name'                  => _x( $cpt, 'Post Type General Name', 'text_domain' ),
               'singular_name'         => _x( $cpt, 'Post Type Singular Name', 'text_domain' ),

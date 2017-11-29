@@ -9,13 +9,19 @@
  */
 
 get_header(); ?>
-
+<?php $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_for_posts')),'full');?>
 <div class="main-wrap "> 
-    <div class = "blogHeader text-align-center flex justify-content-center align-items-center  goldText blackBackground">
-        <h1 class ="oswald"> BLOG </h1>
+
+<div class="teamHeader flex align-items-center" style="background-size: 100%;background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<?php echo $backgroundImg[0] ?>'); background-position:center;">
+        <div class="width-50 padding-lg padding-left-xlg  transparentBlackBg">
+                <h1 class="entry-title oswald goldText med-lgFont uppercase letterSpacingMed med-lgFont"><?php single_post_title(); ?></h1>
+        </div>
+</div>
+    <!-- <div class = "blogHeader text-align-center flex justify-content-center align-items-center  goldText blackBackground">
+        <h1 class ="oswald lgFont"> BLOG </h1>
         
-    </div>
-	<main class="main-content flex flex-wrap justify-content-space-around padding-right-xxlg padding-left-xxlg  ">
+    </div> -->
+	<main class="main-content flex flex-wrap  padding-right-xxlg padding-left-xxlg  ">
         
 	<?php if ( have_posts() ) : ?>
 
@@ -42,7 +48,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 	</main>
-	<?php get_sidebar(); ?>
+
 
 </div>
 

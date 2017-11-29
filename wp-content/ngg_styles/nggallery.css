@@ -1,0 +1,66 @@
+/*
+CSS Name: Default Styles
+Description: NextGEN Default Gallery Stylesheet
+Author: Imagely
+Version: 2.13
+
+This stylesheet is provided to allow users the ability of overriding the default styles for all display types
+*/
+
+.ngg-albumoverview{
+    width: 50%;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.ngg-album-compact {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.ngg-album-compactbox {
+    border: 2px solid #ffd700 !important;
+    width: 30%;
+}
+.ngg-album-compactbox img {
+   
+        width: 100%;
+} 
+.ngg-album-desc{
+    font-family: Oswald !important;
+    text-transform: uppercase;
+    color: #ffd700;
+    font-weight: 100;
+    font-size: 2rem;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+.ngg-album-gallery-image-counter{
+    color: #ffd700;
+    font-family: Lato;
+    font-size: 1.3rem !important;
+}
+
+.ngg-galleryoverview{
+    min-height: 60vh !important;
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.ngg-breadcrumbs{
+    color: #ffd700;
+    font-family: Lato;
+    font-size: 1.3rem !important;
+}
+
+.ngg-breadcrumbs p {
+    color: #ffd700;
+    font-family: Lato;
+    font-size: 1.3rem !important;
+} 

@@ -86,7 +86,7 @@ class N2SSShortcodeInsert {
                     <?php
                     $router = N2Base::getApplication('smartslider')->router;
                     ?>
-                    <iframe src="<?php echo $router->createUrl(array('sliders/embed')); ?>"></iframe>
+                    <iframe style="border: 0;" src="<?php echo $router->createUrl(array('sliders/embed')); ?>"></iframe>
 				</div>
 			</div>
         <script type="text/javascript">
@@ -158,6 +158,9 @@ class N2SSShortcodeInsert {
 
                     window.NextendSmartSliderSelectModal = function ($input) {
                         callback = function (id) {
+                            if (typeof $input === 'function') {
+                                $input = $input();
+                            }
                             $input.val(id).trigger('input').trigger('change');
                         };
                         show();

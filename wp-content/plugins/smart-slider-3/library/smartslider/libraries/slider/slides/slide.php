@@ -176,12 +176,16 @@ class N2SmartSliderSlide {
         list($url, $target) = (array)N2Parse::parse($this->parameters->getIfEmpty('link', '|*|'));
 
         if (!empty($url) && $url != '#') {
+            $url = $this->fill($url);
+        }
+
+        if (!empty($url) && $url != '#') {
 
             if (empty($target)) {
                 $target = '_self';
             }
 
-            $url = N2ImageHelper::fixed($this->fill($url));
+            $url = N2ImageHelper::fixed($url);
 
             $this->containerAttributes['onclick'] = '';
             if (strpos($url, 'javascript:') === 0) {
@@ -295,11 +299,14 @@ class N2SmartSliderSlide {
                 $args[$i] = $this->parseVariable($args[$i]);
             }
 
-            return call_user_func_array(array(
-                $this,
-                '_' . $match[3]
-            ), $args);
+            if (method_exists($this, '_' . $match[3])) {
+                return call_user_func_array(array(
+                    $this,
+                    '_' . $match[3]
+                ), $args);
+            }
 
+            return $match[0];
         } else {
             return $this->parseVariable($match[5]);
         }
